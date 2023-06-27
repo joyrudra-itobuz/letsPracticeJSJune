@@ -1,5 +1,4 @@
 //Testing Phase
-
 import axios from "axios";
 import { log } from "console";
 import path from "path";
@@ -14,7 +13,6 @@ let rest;
 const nosArr = [1, 2, 3, 4, 5];
 
 //Rest Part
-
 const [firstName, secondName] = ["Joyrudra", "Biswas"];
 const detailsArr = { myName: "Joyrudra", age: "22", address: "Kolkata" };
 const [getFirstNo] = [nosArr];
@@ -31,10 +29,8 @@ const spread = ["Joy", "Has", ...nosArr];
 console.log(spread);
 
 //Get Data
-
 const getData = ({ myName, age }) => {
   console.log("Name and Age : ", myName, age);
-
   try {
     addData();
   } catch (err) {
@@ -272,16 +268,31 @@ const even = (elem) => elem % 2 == 0;
 console.log(testArr.some(even));
 
 testArr.forEach((data) => {
-  setTimeout(() => {
-    data["createdAt"] = new Date();
-    log(data);
-  }, 1000);
+  // setTimeout(() => {
+  //   data["createdAt"] = new Date();
+  //   log(data);
+  // }, 1000);
+  data["createdAt"] = new Date();
 });
 
 // console.log(testArr);
 
-setTimeout(() => {
-  testArr.forEach((data) => {
-    log(data.createdAt.toLocaleString("en", { timezone: "UTC" }));
-  });
-}, 2000);
+// setTimeout(() => {
+//   testArr.forEach((data) => {
+//     log(data.createdAt.toLocaleString("en", { timezone: "UTC" }));
+//   });
+// }, 2000);
+
+testArr.forEach((data) => {
+  log(data.createdAt.toLocaleString("en", { timezone: "UTC" }));
+});
+
+console.log(
+  testArr
+    .reverse()
+    .slice(0, 2)
+    .includes((data) => {
+      console.log(data);
+      data.name === "Zenia Karmakar";
+    })
+);
